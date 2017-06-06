@@ -12,9 +12,12 @@
 		76BA30E01EE3E312002E6505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BA30DE1EE3E312002E6505 /* Main.storyboard */; };
 		76BA30E21EE3E312002E6505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76BA30E11EE3E312002E6505 /* Assets.xcassets */; };
 		76BA30E51EE3E312002E6505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BA30E31EE3E312002E6505 /* LaunchScreen.storyboard */; };
+		80CF7F183EB7ADF927EF27CF /* Pods_Fill_My_Basket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FED0D3AD9BED4270CAEA0F5 /* Pods_Fill_My_Basket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31F069B487F230CEAD713358 /* Pods-Fill My Basket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fill My Basket.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fill My Basket/Pods-Fill My Basket.release.xcconfig"; sourceTree = "<group>"; };
+		4FED0D3AD9BED4270CAEA0F5 /* Pods_Fill_My_Basket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fill_My_Basket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BA30D71EE3E312002E6505 /* Fill My Basket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fill My Basket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BA30DA1EE3E312002E6505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76BA30DC1EE3E312002E6505 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		76BA30E11EE3E312002E6505 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76BA30E41EE3E312002E6505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76BA30E61EE3E312002E6505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5F73B0E2E296723ECBA997D /* Pods-Fill My Basket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fill My Basket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fill My Basket/Pods-Fill My Basket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CF7F183EB7ADF927EF27CF /* Pods_Fill_My_Basket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E4E26491DB858A7F02AC25E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5F73B0E2E296723ECBA997D /* Pods-Fill My Basket.debug.xcconfig */,
+				31F069B487F230CEAD713358 /* Pods-Fill My Basket.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		76BA30CE1EE3E311002E6505 = {
 			isa = PBXGroup;
 			children = (
 				76BA30D91EE3E312002E6505 /* Fill My Basket */,
 				76BA30D81EE3E312002E6505 /* Products */,
+				3E4E26491DB858A7F02AC25E /* Pods */,
+				ADF7B782D31B3A28959210F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +88,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		ADF7B782D31B3A28959210F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FED0D3AD9BED4270CAEA0F5 /* Pods_Fill_My_Basket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76BA30E91EE3E312002E6505 /* Build configuration list for PBXNativeTarget "Fill My Basket" */;
 			buildPhases = (
+				CC3599CBBB68EA108275B391 /* [CP] Check Pods Manifest.lock */,
 				76BA30D31EE3E312002E6505 /* Sources */,
 				76BA30D41EE3E312002E6505 /* Frameworks */,
 				76BA30D51EE3E312002E6505 /* Resources */,
+				17EA882A2B0DA58132F29C8C /* [CP] Embed Pods Frameworks */,
+				A3F1A6E3A0EEC8F47043C9BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17EA882A2B0DA58132F29C8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fill My Basket/Pods-Fill My Basket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3F1A6E3A0EEC8F47043C9BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fill My Basket/Pods-Fill My Basket-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC3599CBBB68EA108275B391 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		76BA30D31EE3E312002E6505 /* Sources */ = {
@@ -267,6 +342,7 @@
 		};
 		76BA30EA1EE3E312002E6505 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5F73B0E2E296723ECBA997D /* Pods-Fill My Basket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8338EVL7GS;
@@ -280,6 +356,7 @@
 		};
 		76BA30EB1EE3E312002E6505 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31F069B487F230CEAD713358 /* Pods-Fill My Basket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8338EVL7GS;
