@@ -13,21 +13,28 @@ import FirebaseAuth
 import GoogleSignIn
 
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var FBLoginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.stopAnimating()
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
         FBLoginButton = FBSDKLoginButton()
     }
     
     @IBAction func GoogleLogin(_ sender: UIButton) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func FBLogin(_ sender: UIButton) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, error) in
             if let err = error {
                 print(err.localizedDescription)
@@ -47,6 +54,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
             return
         }
         self.getUserDetails()
+        
     }
     
     func getUserDetails() {
@@ -65,6 +73,27 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
                 print(err.localizedDescription)
             }
             print(user!)
+            self.activityIndicator.isHidden = true
+            self.performSegue(withIdentifier: "LoggedIn", sender: self)
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let err = error {
+            print(err.localizedDescription)
+            return
+        }
+        print("Successfully logged into google")
+        let credential = GoogleAuthProvider.credential(withIDToken: user.authentication.idToken, accessToken: user.authentication.accessToken)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            print("Successfully logged into firebase using google", user!.uid)
+            self.activityIndicator.isHidden = true
+            self.performSegue(withIdentifier: "LoggedIn", sender: self)
+            
         }
     }
 

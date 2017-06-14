@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emn-Bi-lGM">
-                                <rect key="frame" x="169.5" y="591" width="35" height="36"/>
+                                <rect key="frame" x="170" y="591" width="35" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Skip">
                                     <color key="titleColor" red="0.2061498397" green="0.2061498397" blue="0.2061498397" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,12 +99,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="-194" y="109"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="OZu-oA-Naa">
             <objects>
-                <viewController id="oHG-wT-Dfv" sceneMemberID="viewController">
+                <viewController id="oHG-wT-Dfv" customClass="LoginViewController" customModule="Fill_My_Basket" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UsB-EN-pbV"/>
                         <viewControllerLayoutGuide type="bottom" id="ARx-ec-TSP"/>
@@ -218,6 +218,9 @@
                                 <state key="normal" title="f">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="FBLogin:" destination="oHG-wT-Dfv" eventType="touchUpInside" id="Dfc-YF-C0A"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcE-lF-Laf">
                                 <rect key="frame" x="204" y="160" width="120" height="45"/>
@@ -230,12 +233,19 @@
                                 <state key="normal" title="g+">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="GoogleLogin:" destination="oHG-wT-Dfv" eventType="touchUpInside" id="HZA-bg-ZG4"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HPQ-S0-FoL">
+                                <rect key="frame" x="178" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z1e-Ag-NJ5" firstAttribute="top" secondItem="n1I-pa-nXM" secondAttribute="bottom" constant="71" id="655-xy-MUH"/>
                             <constraint firstItem="VFm-Ee-FPf" firstAttribute="leading" secondItem="bzy-cG-WtF" secondAttribute="leading" id="6At-JI-aDl"/>
+                            <constraint firstItem="HPQ-S0-FoL" firstAttribute="centerY" secondItem="bzy-cG-WtF" secondAttribute="centerY" id="9G5-I2-A8Y"/>
                             <constraint firstItem="IcE-lF-Laf" firstAttribute="top" secondItem="S7c-Il-Uc3" secondAttribute="bottom" constant="27" id="C2v-LC-gij"/>
                             <constraint firstItem="n1I-pa-nXM" firstAttribute="top" secondItem="VFm-Ee-FPf" secondAttribute="bottom" id="LYn-7m-mHD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7My-0F-01t" secondAttribute="trailing" constant="-1" id="Mlh-VZ-Jdc"/>
@@ -246,6 +256,7 @@
                             <constraint firstItem="7My-0F-01t" firstAttribute="top" secondItem="QAW-uN-3AC" secondAttribute="bottom" constant="15" id="WXL-FC-sxo"/>
                             <constraint firstAttribute="leadingMargin" secondItem="QAW-uN-3AC" secondAttribute="leading" id="Wft-mT-bs0"/>
                             <constraint firstAttribute="trailing" secondItem="VFm-Ee-FPf" secondAttribute="trailing" id="Yjg-ro-740"/>
+                            <constraint firstItem="HPQ-S0-FoL" firstAttribute="centerX" secondItem="bzy-cG-WtF" secondAttribute="centerX" id="Zha-Xm-nB6"/>
                             <constraint firstItem="QAW-uN-3AC" firstAttribute="top" secondItem="sNG-i9-982" secondAttribute="bottom" constant="40.5" id="hkW-6s-obz"/>
                             <constraint firstItem="S7c-Il-Uc3" firstAttribute="top" secondItem="n1I-pa-nXM" secondAttribute="bottom" constant="23" id="ibd-6l-m8D"/>
                             <constraint firstItem="dN9-4s-ES9" firstAttribute="centerX" secondItem="bzy-cG-WtF" secondAttribute="centerX" id="ivX-9B-3Jj"/>
@@ -262,10 +273,66 @@
                             <constraint firstItem="z1e-Ag-NJ5" firstAttribute="leading" secondItem="bzy-cG-WtF" secondAttribute="leadingMargin" constant="38" id="zvh-AK-yaR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="FBLoginButton" destination="z1e-Ag-NJ5" id="4Bl-KO-CJJ"/>
+                        <outlet property="activityIndicator" destination="HPQ-S0-FoL" id="5Ba-Op-gr0"/>
+                        <segue destination="scT-xy-zU1" kind="show" identifier="LoggedIn" id="Nuf-jX-G5R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hG2-iV-irJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863.20000000000005" y="118.29085457271366"/>
+            <point key="canvasLocation" x="600.79999999999995" y="108.39580209895054"/>
+        </scene>
+        <!--fill my basket-->
+        <scene sceneID="JcE-T3-41P">
+            <objects>
+                <viewController id="fag-1s-1yZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="USd-Kg-MPP"/>
+                        <viewControllerLayoutGuide type="bottom" id="zyr-2l-xiB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KQd-ZS-NjE">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhi-31-gd3">
+                                <rect key="frame" x="141.5" y="290" width="91.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.00055005413579999995" green="0.11335419450000001" blue="0.40849358969999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fhi-31-gd3" firstAttribute="centerY" secondItem="KQd-ZS-NjE" secondAttribute="centerY" id="N52-7h-IEC"/>
+                            <constraint firstItem="fhi-31-gd3" firstAttribute="centerX" secondItem="KQd-ZS-NjE" secondAttribute="centerX" id="dYx-mw-jTU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="fill my basket" id="qlX-oj-fGY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lRe-f2-atc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2364" y="107.49625187406298"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zVp-PQ-a2f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="scT-xy-zU1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="fC6-CR-3Ur">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.29686286070000001" green="0.40849358969999999" blue="0.26271524550000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fag-1s-1yZ" kind="relationship" relationship="rootViewController" id="PNe-jf-eQ5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SwS-fw-1TS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1424.8" y="107.49625187406298"/>
         </scene>
     </scenes>
     <resources>
